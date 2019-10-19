@@ -8,7 +8,10 @@ GOPATH            ?= $(shell go env GOPATH)
 # TMP_GOPATH is used to install tools with specified version
 # in a way that does not mess up with go modules.
 TMP_GOPATH        ?= /tmp/github.com/ppanyukov/go-boot
-GOBIN             ?= $(firstword $(subst :, ,${GOPATH}))/bin
+
+#GOBIN             ?= $(firstword $(subst :, ,${GOPATH}))/bin
+GOBIN             = $(shell pwd)/bin
+
 GO111MODULE       ?= on
 export GO111MODULE
 GOPROXY           ?= https://proxy.golang.org

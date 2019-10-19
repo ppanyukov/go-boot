@@ -1,34 +1,43 @@
 # go-boot
 
-The boostrap template for go projects.
+The boostrap template for Go projects.
 
 
 Why this is needed:
 
-- setting up projects takes time!
+- setting up projects takes time.
+- setting up features needed in every project take even more time.
 - simplify with this template.
+
+
+Using this:
+- git clone
+- replace all occurrences of `github.com/ppanyukov/go-boot` with your own github repo name.
+
 
 Features:
 
-- some ideas were borrowed from established Prometheus and Thanos projects.
-- Go 1.13
-- project structure: `cmd` and `pkg` folders.
-- Apache 2.0 license.
-- makefile with useful targets and tooling
+- Some ideas were borrowed from established Prometheus and Thanos projects.
+- Go 1.13.
+- Apache 2.0 license, but change to your own if needed.
+- Project structure: 
+    - `cmd` folder for executable commands (`main.go`).
+    - `pkg` folder for everything else.
+- `Makefile` with useful targets and tooling
     - `make format test lint build`
     - `make all` (does the above)
 - `.gitignore` file with all the right things ignored, including OS X.
 - Goland project settings (`.idea` folder).
-
-Using this:
-
-- git clone
-- 
+- Uses Prometheus `promu` tool to build:
+    - See https://github.com/prometheus/promu 
+    - Embeds version at build time (using `promu`)
+    - Cross-platform builds made easy
 
 TODO:
 
-- make it easier to use
-- version embedding using .
+- make it easier to use without replacing references, generate stuff?
+- CI builds?
+- Docker image builds?
 
 ----
 

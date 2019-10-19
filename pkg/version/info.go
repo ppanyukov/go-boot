@@ -26,6 +26,8 @@ import (
 )
 
 // Build information. Populated at build-time.
+// The values are assigned using `-ldflags -X ""` in `.promu.yml`.
+// Also see https://blog.alexellis.io/inject-build-time-vars-golang/ .
 var (
 	Version   string
 	Revision  string

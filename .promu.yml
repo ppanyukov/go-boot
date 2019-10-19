@@ -8,11 +8,11 @@ build:
       path: ./cmd/go-boot
   flags: -a -tags netgo
   ldflags: |
-    -X {{repoPath}}pkg/version.Version={{.Version}}
-    -X {{repoPath}}pkg/version.Revision={{.Revision}}
-    -X {{repoPath}}pkg/version.Branch={{.Branch}}
-    -X {{repoPath}}pkg/version.BuildUser={{user}}@{{host}}
-    -X {{repoPath}}pkg/version.BuildDate={{date "20060102-15:04:05"}}
+    -X {{repoPath}}/pkg/version.Version={{.Version}}
+    -X {{repoPath}}/pkg/version.Revision={{.Revision}}
+    -X {{repoPath}}/pkg/version.Branch={{.Branch}}
+    -X {{repoPath}}/pkg/version.BuildUser={{user}}@{{host}}
+    -X {{repoPath}}/pkg/version.BuildDate={{date "20060102-15:04:05"}}
 crossbuild:
   platforms:
     - linux/amd64
