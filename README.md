@@ -1,21 +1,26 @@
 # go-boot
 
-The boostrap template for Go projects.
+Bootstrap template for Go projects.
 
-
-Why this is needed:
+**Why this is needed**
 
 - setting up projects takes time.
 - setting up features needed in every project take even more time.
 - simplify with this template.
 
 
-Using this:
+**Using**
+- Should work on OS X and Linux. Windows not tested.
 - git clone
 - replace all occurrences of `github.com/ppanyukov/go-boot` with your own github repo name.
+- run make
+    - `make build` - just build the exe
+    - `make assets` - rebuild assets embedding
+    - `make format test lint build` - these things :)
+    - `make all` - equivalent of the above 
 
 
-Features:
+**Features**
 
 - Some ideas were borrowed from established Prometheus and Thanos projects.
 - Go 1.13.
@@ -23,6 +28,7 @@ Features:
 - Project structure: 
     - `cmd` folder for executable commands (`main.go`).
     - `pkg` folder for everything else.
+    - `assets` folder for items to embed in executable
 - `Makefile` with useful targets and tooling
     - `make format test lint build`
     - `make all` (does the above)
@@ -35,7 +41,8 @@ Features:
 - Embed static assets into executable (e.g. HTML, CSS etc), see further
 
 
-Embedding static files into executable:
+
+**Embedding static files into executable**
 
 - Place your items in `assets` directory.
 - Run `make assets`. This will generate go file with embedded items.
@@ -43,15 +50,24 @@ Embedding static files into executable:
 - See example in `cmd/go-boot/main.go`
 
 
-TODO:
+**TODO**
 
 - make it easier to use without replacing references, generate stuff?
 - CI builds?
 - Docker image builds?
+- Windows?
 
 ----
 
-Other Copyrights:
+**Additional Copyrights**
+
+These Apache 2.0 projects were partially used:
+
+- Thanos: https://github.com/thanos-io/thanos
+- Prometheus: https://github.com/prometheus/prometheus
+- Prometheus Promu: https://github.com/prometheus/promu/
+
+Parts were adjusted to fit the purpose of this repo.
 
 ```
 Copyright © Prometheus Team
