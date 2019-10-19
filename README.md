@@ -32,6 +32,16 @@ Features:
     - See https://github.com/prometheus/promu 
     - Embeds version at build time (using `promu`)
     - Cross-platform builds made easy
+- Embed static assets into executable (e.g. HTML, CSS etc), see further
+
+
+Embedding static files into executable:
+
+- Place your items in `assets` directory.
+- Run `make assets`. This will generate go file with embedded items.
+- Run `make build` as usual.
+- See example in `cmd/go-boot/main.go`
+
 
 TODO:
 

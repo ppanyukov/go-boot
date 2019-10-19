@@ -1,0 +1,5 @@
+Hello!
+
+This is a sample text file embedded it the executable.
+Add your own: images, HTML, CSS etc...
+

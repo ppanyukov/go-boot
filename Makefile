@@ -77,6 +77,16 @@ endef
 .PHONY: all
 all: format test lint build
 
+# assets packs all static assets in `assets` dir into `pkg/assets/bindata.go` files
+# which gets compiled into the binary.
+.PHONY: assets
+assets: $(GOBINDATA)
+	@echo ">> deleting asset file"
+	@rm pkg/assets/bindata.go || true
+	@echo ">> writing assets"
+	@$(GOBINDATA) $(bindata_flags) -pkg assets -o pkg/assets/bindata.go assets/...
+	@go fmt ./pkg/assets
+
 # build builds binaries using `promu`.
 .PHONY: build
 build: check-git deps $(PROMU)
