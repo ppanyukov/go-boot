@@ -63,6 +63,17 @@ Bootstrap template for Go projects.
 
 
 
+**Building on Windows**
+
+Best bet is to use these:
+
+- git bash
+- Docker
+
+then follow instructions for *Building in Docker*
+
+
+
 **Building in Docker**
 
 Use `build.sh` script like so:
