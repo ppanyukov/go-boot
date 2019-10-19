@@ -1,0 +1,11 @@
+# Build artifacts
+/.build/
+/bin/
+
+# OS X finder garbage
+.DS_Store
+
+# vi swap files
+*.swp
+
+
