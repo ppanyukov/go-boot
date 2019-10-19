@@ -12,7 +12,17 @@ Bootstrap template for Go projects.
 **Using**
 - git clone
 - replace **ALL** occurrences of `github.com/ppanyukov/go-boot` with your own github repo name.
-- run make
+- project structure: 
+    - `cmd` folder for executable commands (`main.go`).
+        - just for `main.go` files to make executables
+        - see `cmd/go-boot/main.go` as example
+        - replace it with your own
+    - `assets` folder for items to embed in executables
+    - `pkg` folder for all other code.
+        - `pkg/assets` - provides access to embedded resources
+        - `pkg/version` - provides access to version info baked in during build
+        - add your own code as extra packages.
+- run make to build
     - `make build` - just build the exe
     - `make assets` - rebuild assets embedding
     - `make format test lint build` - these things :)
