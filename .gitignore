@@ -1,6 +1,7 @@
 # Build artifacts
 /.build/
 /bin/
+/bin_tools/
 
 # OS X finder garbage
 .DS_Store

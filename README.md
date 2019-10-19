@@ -11,6 +11,10 @@ Bootstrap template for Go projects.
 
 **Using**
 - Should work on OS X and Linux. Windows not tested.
+- Building on Windows: build in docker, see further.
+- Building in docker: see further.
+
+
 - git clone
 - replace **ALL** occurrences of `github.com/ppanyukov/go-boot` with your own github repo name.
 - run make
@@ -18,6 +22,14 @@ Bootstrap template for Go projects.
     - `make assets` - rebuild assets embedding
     - `make format test lint build` - these things :)
     - `make all` - equivalent of the above 
+- to target different OS/Architecture, use `Z_GOOS` and `Z_GOARCH`, e.g:
+    - `Z_GOOS=linux Z_GOARCH=arm make build`
+- to run dockerised build:
+    - `./build.sh make build`
+- dockerised build accepts `Z_GOOS` and `Z_GOARCH`:
+    - `Z_GOOS=linux Z_GOARCH=arm ./build.sh make build`
+- to build on Windows, use dockerised build.
+
 
 
 **Features**
@@ -48,6 +60,27 @@ Bootstrap template for Go projects.
 - Run `make assets`. This will generate go file with embedded items.
 - Run `make build` as usual.
 - See example in `cmd/go-boot/main.go`
+
+
+
+**Building in Docker**
+
+Use `build.sh` script like so:
+
+```
+./build.sh make build
+./build.sh make all
+```
+
+This will run `make build` etc in docker container. The binaries will be written into `bin` directory and they will be for the hosts's OS and architecture. So if you run this on OS X, they will be Darwin/amd64. On Windows they will be Windows/amd64. And so on.
+
+
+To target different OS, use `Z_GOOS` and `Z_GOARCH`, e.g.:
+
+```
+Z_GOOS=linux Z_GOARCH=arm ./build.sh make all
+```
+
 
 
 **TODO**

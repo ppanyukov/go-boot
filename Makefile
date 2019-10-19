@@ -9,8 +9,25 @@ GOPATH            ?= $(shell go env GOPATH)
 # in a way that does not mess up with go modules.
 TMP_GOPATH        ?= /tmp/github.com/ppanyukov/go-boot
 
-#GOBIN             ?= $(firstword $(subst :, ,${GOPATH}))/bin
-GOBIN             = $(shell pwd)/bin
+# Tooling and target OS/ARCH for the binary.
+# Assists builds in docker for Windows users too.
+#
+# See build.sh
+#
+# Z_GOOS, Z_GOARCH: the target for the binary.
+# GOBIN: location where tools like promu and goimports should be installed.
+#
+# By default, hosts GOOS and GOARCH will be used.
+# Override to target other. E.g.
+#   Z_GOOS=window make build
+#   Z_GOOS=linux Z_GOARCH=arm make build
+#
+Z_GOOS            ?= $(shell go env GOOS)
+Z_GOARCH          ?= $(shell go env GOARCH)
+
+Z_GOBIN           ?= $(shell pwd)/bin_tools/$(shell go env GOOS)_$(shell go env GOARCH)
+GOBIN             = $(Z_GOBIN)
+
 
 GO111MODULE       ?= on
 export GO111MODULE
@@ -91,7 +108,7 @@ assets: $(GOBINDATA)
 .PHONY: build
 build: check-git deps $(PROMU)
 	@echo ">> building binaries $(GOBIN)"
-	@$(PROMU) build --prefix $(PREFIX)
+	@GOOS=$(Z_GOOS) GOARCH=$(Z_GOARCH) $(PROMU) build --prefix $(PREFIX)
 
 # same as build but not checking git or modules
 .PHONY: build-fast
