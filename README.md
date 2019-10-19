@@ -10,11 +10,6 @@ Bootstrap template for Go projects.
 
 
 **Using**
-- Should work on OS X and Linux. Windows not tested.
-- Building on Windows: build in docker, see further.
-- Building in docker: see further.
-
-
 - git clone
 - replace **ALL** occurrences of `github.com/ppanyukov/go-boot` with your own github repo name.
 - run make
