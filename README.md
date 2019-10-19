@@ -12,7 +12,7 @@ Bootstrap template for Go projects.
 **Using**
 - Should work on OS X and Linux. Windows not tested.
 - git clone
-- replace all occurrences of `github.com/ppanyukov/go-boot` with your own github repo name.
+- replace **ALL** occurrences of `github.com/ppanyukov/go-boot` with your own github repo name.
 - run make
     - `make build` - just build the exe
     - `make assets` - rebuild assets embedding
